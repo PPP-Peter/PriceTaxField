@@ -1,9 +1,11 @@
 {
     "name": "wame/price-tax-field",
-    "description": "A Laravel Nova field.",
+    "description": "A Laravel Nova Price Tax Fields.",
     "keywords": [
         "laravel",
-        "nova"
+        "nova",
+        "price",
+        "tax"
     ],
     "license": "MIT",
     "require": {

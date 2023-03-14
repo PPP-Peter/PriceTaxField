@@ -1,5 +1,7 @@
 # Laravel Nova Price Tax Fields
 
+<img src="img.png" height="50">
+
 ## Installation
 
 ``` php

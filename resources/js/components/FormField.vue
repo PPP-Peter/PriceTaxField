@@ -14,7 +14,7 @@
                                 :style="{width:'125px'}"
                                 :id="field.attribute"
                                 type="number"
-                                step="0.01"
+                                step="1"
                                 @input ="changePrice"
                                 :class="errorClasses"
                                 :placeholder="field.name"

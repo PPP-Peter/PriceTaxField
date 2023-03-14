@@ -209,7 +209,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         },
         id: $props.field.attribute,
         type: "number",
-        step: "0.01",
+        step: "1",
         onInput: _cache[0] || (_cache[0] = function () {
           return $options.changePrice && $options.changePrice.apply($options, arguments);
         }),
