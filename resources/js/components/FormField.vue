@@ -31,6 +31,7 @@
                            v-model="taxValue"
                            @input="changePrice"
                            :id="field.attribute"
+                           :placeholder="field.names[1]"
                            type="number"
                     />
                     <span class="p-2 mr-3 form-control form-input-bordered bg-transparent">%</span>
@@ -44,6 +45,7 @@
                            v-model="withTaxValue"
                            @input="changePriceWithTax"
                            :id="field.attribute"
+                           :placeholder="field.names[2]"
                            type="number"
                     />
                     <span class="p-2 form-control  form-input-bordered bg-transparent">€</span>
@@ -114,7 +116,7 @@ export default {
         let withTaxElementValue = document.querySelector('#' + this.field.dbNames[2] + '-productdetail-text-field').value
 
         this.taxValue = taxElementValue
-        this.taxValue ? '' : this.taxValue  = 0
+        this.taxValue ? '' : this.taxValue  = this.field.defaultTax
         this.withTaxValue = Number(withTaxElementValue).toFixed(2)
         document.querySelector('.price-tax-field').previousElementSibling.previousElementSibling.style.display = "none"
         document.querySelector('.price-tax-field').previousElementSibling.style.display = "none"

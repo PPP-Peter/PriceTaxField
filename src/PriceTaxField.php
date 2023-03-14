@@ -25,4 +25,10 @@ class PriceTaxField extends Field
             'names' => $value,
         ]);
     }
+
+    public function defaultTax($value){
+        return $this->withMeta([
+            'defaultTax' => $value,
+        ]);
+    }
 }

@@ -79,7 +79,7 @@ __webpack_require__.r(__webpack_exports__);
     var taxElementValue = document.querySelector('#' + this.field.dbNames[1] + '-productdetail-text-field').value;
     var withTaxElementValue = document.querySelector('#' + this.field.dbNames[2] + '-productdetail-text-field').value;
     this.taxValue = taxElementValue;
-    this.taxValue ? '' : this.taxValue = 0;
+    this.taxValue ? '' : this.taxValue = this.field.defaultTax;
     this.withTaxValue = Number(withTaxElementValue).toFixed(2);
     document.querySelector('.price-tax-field').previousElementSibling.previousElementSibling.style.display = "none";
     document.querySelector('.price-tax-field').previousElementSibling.style.display = "none";
@@ -176,7 +176,7 @@ var _hoisted_6 = {
 var _hoisted_7 = {
   "class": "pl-4"
 };
-var _hoisted_8 = ["id"];
+var _hoisted_8 = ["id", "placeholder"];
 var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "p-2 mr-3 form-control form-input-bordered bg-transparent"
@@ -188,7 +188,7 @@ var _hoisted_10 = {
 var _hoisted_11 = {
   "class": "pl-4"
 };
-var _hoisted_12 = ["id"];
+var _hoisted_12 = ["id", "placeholder"];
 var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "p-2 form-control form-input-bordered bg-transparent"
@@ -231,6 +231,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $options.changePrice && $options.changePrice.apply($options, arguments);
         }),
         id: $props.field.attribute,
+        placeholder: $props.field.names[1],
         type: "number"
       }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_8), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.taxValue]]), _hoisted_9]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" price with tax field"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.field.names[2]), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         "class": "w-1/3 ml-2 form-control form-input form-input-bordered",
@@ -244,6 +245,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $options.changePriceWithTax && $options.changePriceWithTax.apply($options, arguments);
         }),
         id: $props.field.attribute,
+        placeholder: $props.field.names[2],
         type: "number"
       }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_12), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.withTaxValue]]), _hoisted_13])])];
     }),
