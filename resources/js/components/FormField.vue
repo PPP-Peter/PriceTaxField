@@ -15,25 +15,25 @@
                                 :id="field.attribute"
                                 type="number"
                                 step="1"
-                                @input ="changePrice"
+                                @input="changePrice"
                                 :class="errorClasses"
                                 :placeholder="field.name"
                                 v-model="value"
                         />
-                        <span class="p-2  mr-3 form-control  form-input-bordered bg-transparent">€</span>
+                        <span class="p-2 mr-3 form-control  form-input-bordered bg-transparent">€</span>
                 </div>
 
                 <!-- tax field-->
                 <div class="input-line">
                     <span class="pl-4">{{ field.names[1] }}</span>
-                    <input class=" w-2/3 ml-2 form-control form-input form-input-bordered"
+                    <input class="w-2/3 ml-2 form-control form-input form-input-bordered"
                            :style="{width:'70px'}"
                            v-model="taxValue"
-                           @input ="changePrice"
+                           @input="changePrice"
                            :id="field.attribute"
                            type="number"
                     />
-                    <span class="p-2  mr-3 form-control  form-input-bordered bg-transparent">%</span>
+                    <span class="p-2 mr-3 form-control form-input-bordered bg-transparent">%</span>
                 </div>
 
                 <!-- price with tax field-->
@@ -42,7 +42,7 @@
                     <input class="w-1/3 ml-2  form-control form-input form-input-bordered"
                            :style="{width:'125px'}"
                            v-model="withTaxValue"
-                           @input ="changePriceWithTax"
+                           @input="changePriceWithTax"
                            :id="field.attribute"
                            type="number"
                     />
@@ -55,12 +55,12 @@
 </template>
 
 <style scoped>
-.input-line{
-    white-space:nowrap;
-}
-.container-price{
-    display: inline-flex
-}
+    .input-line{
+        white-space:nowrap;
+    }
+    .container-price{
+        display: inline-flex
+    }
 </style>
 
 <script>
@@ -77,21 +77,19 @@ export default {
     },
     methods: {
         changePrice(){
-
             if (this.value ) {
                 clearTimeout(this.debounce)
                 this.debounce = setTimeout(() => {
                     this.value = this.value.toFixed(2)
                 }, 1100)
+                if (this.taxValue || this.taxValue ===0 ) {
+                    let result = this.value * (this.taxValue * 0.01 + 1)
+                    this.withTaxValue = result.toFixed(2);
+                }
             }
-
-            //if (this.taxValue == 0 ) return
-            let result = this.value * (this.taxValue *0.01 + 1)
-            this.withTaxValue = result.toFixed(2);
-
         },
         changePriceWithTax(){
-            let result =  this.withTaxValue /   (this.taxValue*0.01 + 1)
+            let result = this.withTaxValue / (this.taxValue * 0.01 + 1)
             this.value = result.toFixed(2);
         },
         changeTax(){},
@@ -112,10 +110,12 @@ export default {
         },
     },
     mounted() {
-        this.value ? this.value = this.value.toFixed(2) : this.value = '0.00'
+        let taxElementValue = document.querySelector('#' + this.field.dbNames[1] + '-productdetail-text-field').value
+        let withTaxElementValue = document.querySelector('#' + this.field.dbNames[2] + '-productdetail-text-field').value
 
-        this.taxValue = document.querySelector('#' + this.field.dbNames[1] + '-productdetail-text-field').value
-        this.withTaxValue = Number(document.querySelector('#' + this.field.dbNames[2] + '-productdetail-text-field').value).toFixed(2)
+        this.taxValue = taxElementValue
+        this.taxValue ? '' : this.taxValue  = 0
+        this.withTaxValue = Number(withTaxElementValue).toFixed(2)
         document.querySelector('.price-tax-field').previousElementSibling.previousElementSibling.style.display = "none"
         document.querySelector('.price-tax-field').previousElementSibling.style.display = "none"
     },

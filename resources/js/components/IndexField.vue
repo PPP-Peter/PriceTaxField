@@ -13,7 +13,7 @@ export default {
   },
     mounted() {
        // this.field.value = new Intl.NumberFormat('sk-SK', { style: 'currency', currency: 'EUR' }).format( this.field.value )
-      //console.log(this.field.price)
+      //console.log(this.field)
     },
 
 }

@@ -49,11 +49,11 @@ __webpack_require__.r(__webpack_exports__);
         this.debounce = setTimeout(function () {
           _this.value = _this.value.toFixed(2);
         }, 1100);
+        if (this.taxValue || this.taxValue === 0) {
+          var result = this.value * (this.taxValue * 0.01 + 1);
+          this.withTaxValue = result.toFixed(2);
+        }
       }
-
-      //if (this.taxValue == 0 ) return
-      var result = this.value * (this.taxValue * 0.01 + 1);
-      this.withTaxValue = result.toFixed(2);
     },
     changePriceWithTax: function changePriceWithTax() {
       var result = this.withTaxValue / (this.taxValue * 0.01 + 1);
@@ -76,9 +76,11 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    this.value ? this.value = this.value.toFixed(2) : this.value = '0.00';
-    this.taxValue = document.querySelector('#' + this.field.dbNames[1] + '-productdetail-text-field').value;
-    this.withTaxValue = Number(document.querySelector('#' + this.field.dbNames[2] + '-productdetail-text-field').value).toFixed(2);
+    var taxElementValue = document.querySelector('#' + this.field.dbNames[1] + '-productdetail-text-field').value;
+    var withTaxElementValue = document.querySelector('#' + this.field.dbNames[2] + '-productdetail-text-field').value;
+    this.taxValue = taxElementValue;
+    this.taxValue ? '' : this.taxValue = 0;
+    this.withTaxValue = Number(withTaxElementValue).toFixed(2);
     document.querySelector('.price-tax-field').previousElementSibling.previousElementSibling.style.display = "none";
     document.querySelector('.price-tax-field').previousElementSibling.style.display = "none";
   }
@@ -106,7 +108,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     // this.field.value = new Intl.NumberFormat('sk-SK', { style: 'currency', currency: 'EUR' }).format( this.field.value )
-    //console.log(this.field.price)
+    //console.log(this.field)
   }
 });
 
@@ -1657,7 +1659,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.input-line[data-v-c023248a]{\n    white-space:nowrap;\n}\n.container-price[data-v-c023248a]{\n    display: inline-flex\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.input-line[data-v-c023248a]{\n        white-space:nowrap;\n}\n.container-price[data-v-c023248a]{\n        display: inline-flex\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

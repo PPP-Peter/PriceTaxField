@@ -13,6 +13,7 @@ class PriceTaxField extends Field
      */
     public $component = 'price-tax-field';
 
+
     public function db_names($value) {
         return $this->withMeta([
             'dbNames' => $value,
