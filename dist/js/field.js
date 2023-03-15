@@ -76,13 +76,14 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    var taxElementValue = document.querySelector('#' + this.field.dbNames[1] + '-productdetail-text-field').value;
-    var withTaxElementValue = document.querySelector('#' + this.field.dbNames[2] + '-productdetail-text-field').value;
+    var priceTaxField = document.querySelector('.price-tax-field');
+    var withTaxElementValue = priceTaxField.previousElementSibling.children[1].children[0].firstElementChild.value;
+    var taxElementValue = priceTaxField.previousElementSibling.previousElementSibling.children[1].children[0].firstElementChild.value;
     this.taxValue = taxElementValue;
     this.taxValue ? '' : this.taxValue = this.field.defaultTax;
     this.withTaxValue = Number(withTaxElementValue).toFixed(2);
-    document.querySelector('.price-tax-field').previousElementSibling.previousElementSibling.style.display = "none";
-    document.querySelector('.price-tax-field').previousElementSibling.style.display = "none";
+    priceTaxField.previousElementSibling.previousElementSibling.style.display = "none";
+    priceTaxField.previousElementSibling.style.display = "none";
   }
 });
 

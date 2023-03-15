@@ -112,14 +112,15 @@ export default {
         },
     },
     mounted() {
-        let taxElementValue = document.querySelector('#' + this.field.dbNames[1] + '-productdetail-text-field').value
-        let withTaxElementValue = document.querySelector('#' + this.field.dbNames[2] + '-productdetail-text-field').value
+        let priceTaxField = document.querySelector('.price-tax-field')
+        let withTaxElementValue = priceTaxField.previousElementSibling.children[1].children[0].firstElementChild.value
+        let taxElementValue = priceTaxField.previousElementSibling.previousElementSibling.children[1].children[0].firstElementChild.value
 
         this.taxValue = taxElementValue
         this.taxValue ? '' : this.taxValue  = this.field.defaultTax
         this.withTaxValue = Number(withTaxElementValue).toFixed(2)
-        document.querySelector('.price-tax-field').previousElementSibling.previousElementSibling.style.display = "none"
-        document.querySelector('.price-tax-field').previousElementSibling.style.display = "none"
+        priceTaxField.previousElementSibling.previousElementSibling.style.display = "none"
+        priceTaxField.previousElementSibling.style.display = "none"
     },
 }
 </script>
