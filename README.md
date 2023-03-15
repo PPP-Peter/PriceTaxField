@@ -31,8 +31,9 @@ Helpers::getPriceWithoutTax($base_field_name, $db_price_without_tax),
 Helpers::getPriceTax($names[1], $db_tax)->rules('required'),
 Helpers::getPriceWithTax($names[2], $db_price_with_tax)->rules('required'),
 Helpers::getPriceTaxField($base_field_name, $db_price_without_tax, $names, $db_tax, $db_price_with_tax, $default_tax)->rules('required'),
-
 ```
+<br>
+
 ### OR use SECOND METHOD for more custom edits
 
 ``` php
@@ -54,7 +55,7 @@ Number::make($names[1], $db_tax)->displayUsing(function ($value) {
 })->rules('required'),
 Number::make($names[2], $db_price_with_tax)->displayUsing(function ($value) {
     return number_format((float)$value, 2, '.', '') . ' €';
-})->rules('required'),
+})->step(0.01)->rules('required'),
 
 PriceTaxField::make($base_field_name, $db_price_without_tax)->fullWidth()->displayUsing(function ($value) {
     return number_format((float)$value, 2, '.', '') . ' €';
