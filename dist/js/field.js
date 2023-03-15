@@ -212,7 +212,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         },
         id: $props.field.attribute,
         type: "number",
-        step: "1",
+        step: "0.01",
         onInput: _cache[0] || (_cache[0] = function () {
           return $options.changePrice && $options.changePrice.apply($options, arguments);
         }),
@@ -247,7 +247,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }),
         id: $props.field.attribute,
         placeholder: $props.field.names[2],
-        type: "number"
+        type: "number",
+        step: "0.01"
       }, null, 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_12), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.withTaxValue]]), _hoisted_13])])];
     }),
     _: 1 /* STABLE */

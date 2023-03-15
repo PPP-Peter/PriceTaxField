@@ -14,7 +14,7 @@
                                 :style="{width:'125px'}"
                                 :id="field.attribute"
                                 type="number"
-                                step="1"
+                                step="0.01"
                                 @input="changePrice"
                                 :class="errorClasses"
                                 :placeholder="field.name"
@@ -47,6 +47,7 @@
                            :id="field.attribute"
                            :placeholder="field.names[2]"
                            type="number"
+                           step="0.01"
                     />
                     <span class="p-2 form-control  form-input-bordered bg-transparent">€</span>
                 </div>

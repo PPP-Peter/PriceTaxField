@@ -10,10 +10,13 @@ composer require wamesk/laravel-nova-price-tax-fields
 
 ## Usage
 Add to your nova model <br>
-<small>(Helper = field, you can change sort field but getPriceTaxField must be last) </small>
+<small>
+(Helper = field, you can change sort field but getPriceTaxField must be last, in migration use decimal or double)
+</small>
+
+
 
 ``` php
-use Wame\PriceTaxField\PriceTaxField;
 use Wame\PriceTaxField\Helpers;
 
 // Price tax field options
