@@ -34,7 +34,30 @@ Helpers::getPriceTaxField($base_field_name, $db_price_without_tax, $names, $db_t
 ```
 <br>
 
-### OR use SECOND METHOD for more custom edits
+### OR register alias
+
+``` php
+'PriceHelper' => Wame\PriceTaxField\PriceField::class,
+```
+
+``` php
+use Wame\PriceTaxField\PriceField;
+
+// Price tax field options
+$db_price_without_tax = 'price';
+$db_tax = 'tax';
+$db_price_with_tax = 'price_with_tax';
+$names = ['bez DPH', 'daň', 's DPH'];
+$base_field_name = 'Cena';
+$default_tax = 20;
+
+PriceField::getPriceWithoutTax($base_field_name, $db_price_without_tax),
+PriceField::getPriceTax($names[1], $db_tax)->rules('required'),
+PriceField::getPriceWithTax($names[2], $db_price_with_tax)->rules('required'),
+PriceField::getPriceTaxField($base_field_name, $db_price_without_tax, $names, $db_tax, $db_price_with_tax, $default_tax)->rules('required'),
+```
+
+### OR use this METHOD for more custom edits
 
 ``` php
 use Wame\PriceTaxField\PriceTaxField;
