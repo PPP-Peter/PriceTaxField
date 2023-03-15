@@ -5,7 +5,7 @@
 ## Installation
 
 ``` php
-composer require wamesk/laravel-nova-price-tax-fields
+composer require wamesk/laravel-nova-price-tax-field
 ```
 
 ## Usage
