@@ -19,7 +19,16 @@ Add to your nova model <br>
 ``` php
 use Wame\PriceTaxField\PriceField;
 
+PriceField::getPriceWithoutTax( config('price-fields.priceTaxOptions'), $this),
+PriceField::getPriceTax(config('price-fields.priceTaxOptions'))->rules('required'),
+PriceField::getPriceWithTax(config('price-fields.priceTaxOptions'))->rules('required'),
+PriceField::getPriceTaxField(config('price-fields.priceTaxOptions'))->rules('required'),
+```
+OR
+``` php
 // Price tax field options
+use Wame\PriceTaxField\PriceField;
+
 $price_tax_options = [
     'db_names'          => ['base_price', 'tax', 'price_with_tax'],
     'names'             => ['bez DPH', 'daň', 's DPH'],
