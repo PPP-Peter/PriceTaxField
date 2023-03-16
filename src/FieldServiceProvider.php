@@ -19,6 +19,14 @@ class FieldServiceProvider extends ServiceProvider
             Nova::script('price-tax-field', __DIR__.'/../dist/js/field.js');
             Nova::style('price-tax-field', __DIR__.'/../dist/css/field.css');
         });
+
+        if ($this->app->runningInConsole()) {
+
+            $this->publishes([
+                __DIR__.'/../config/price-fields.php' => config_path('price-fields.php'),
+            ], 'config');
+
+        }
     }
 
     /**

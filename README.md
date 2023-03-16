@@ -7,6 +7,9 @@
 ``` php
 composer require wamesk/laravel-nova-price-tax-field
 ```
+``` php
+php artisan vendor:publish --provider="Wame\PriceTaxField\FieldServiceProvider"
+```
 
 ## Usage
 Add to your nova model <br>
@@ -24,7 +27,10 @@ PriceField::getPriceTax(config('price-fields.priceTaxOptions'))->rules('required
 PriceField::getPriceWithTax(config('price-fields.priceTaxOptions'))->rules('required'),
 PriceField::getPriceTaxField(config('price-fields.priceTaxOptions'))->rules('required'),
 ```
-OR
+<br>
+
+
+Edit options in `config.price-fields.php` OR add options in your model
 ``` php
 // Price tax field options
 use Wame\PriceTaxField\PriceField;
