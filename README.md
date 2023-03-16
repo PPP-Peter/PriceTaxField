@@ -22,15 +22,26 @@ Add to your nova model <br>
 ``` php
 use Wame\PriceTaxField\PriceField;
 
-PriceField::getPriceWithoutTax( config('price-fields.priceTaxOptions'), $this),
-PriceField::getPriceTax(config('price-fields.priceTaxOptions'))->rules('required'),
-PriceField::getPriceWithTax(config('price-fields.priceTaxOptions'))->rules('required'),
-PriceField::getPriceTaxField(config('price-fields.priceTaxOptions'))->rules('required'),
+PriceField::getPriceWithoutTax( config('price-fields'), $this),
+PriceField::getPriceTax(config('price-fields'))->rules('required'),
+PriceField::getPriceWithTax(config('price-fields'))->rules('required'),
+PriceField::getPriceTaxField(config('price-fields'))->rules('required'),
 ```
 <br>
 
 
-Edit options in `config.price-fields.php` OR add options in your model
+
+
+<img alt="preview" src="img2.png">
+
+## Config
+`rconfig/price-fields.php`
+
+## Translate
+`resource/lang/sk/price-fields.php`
+
+## Customization
+Edit options in `config.price-fields.php` OR you can add options in your model
 ``` php
 // Price tax field options
 use Wame\PriceTaxField\PriceField;
@@ -50,10 +61,3 @@ PriceField::getPriceTax($price_tax_options)->rules('required'),
 PriceField::getPriceWithTax($price_tax_options)->rules('required'),
 PriceField::getPriceTaxField($price_tax_options)->rules('required'),
 ```
-
-<img alt="preview" src="img2.png">
-
-
-## Licence
-
-The MIT License (MIT). Please see [License File](LICENCE) for more information.
