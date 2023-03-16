@@ -22,9 +22,15 @@ class FieldServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
 
+            //export config
             $this->publishes([
                 __DIR__.'/../config/price-fields.php' => config_path('price-fields.php'),
             ], 'config');
+
+            // export lang
+            $this->publishes([
+                __DIR__ . '/../resources/lang/' => resource_path('lang')
+            ], ['langs', 'price-field', 'wame']);
 
         }
     }

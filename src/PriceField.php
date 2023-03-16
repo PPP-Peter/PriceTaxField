@@ -18,9 +18,9 @@ class PriceField
      */
     public static function getPriceWithoutTax($options, $values): Number
     {
-        $base_field_name = $options['base_field_name'];
+        $base_field_name = __('price-field.base_field_name');
         $db_price_without_tax = $options['db_names'][0];
-        $names = $options['names'];
+        $names =  [__('price-field.names.without_tax'), __('price-field.names.tax'), __('price-field.names.with_tax')];
         $db_names = $options['db_names'];
         $one_col = $options['one_col'];
         $classes = $options['col_classes'];
@@ -56,7 +56,7 @@ class PriceField
      */
     public static function getPriceTax($options): Number
     {
-        $name = $options['names'][1];
+        $name =  __('price-field.names.tax');
         $db_tax = $options['db_names'][1];
         $one_col = $options['one_col'];
 
@@ -82,7 +82,7 @@ class PriceField
      */
     public static function getPriceWithTax($options): Number
     {
-        $name = $options['names'][2];
+        $name =__('price-field.names.with_tax');
         $db_price_with_tax = $options['db_names'][2];
         $one_col = $options['one_col'];
 
@@ -109,8 +109,8 @@ class PriceField
      */
     public static function getPriceTaxField($options): PriceTaxField
     {
-        $base_field_name = $options['base_field_name'];
-        $names = $options['names'];
+        $base_field_name = __('price-field.base_field_name');
+        $names = [__('price-field.names.without_tax'), __('price-field.names.tax'), __('price-field.names.with_tax')];
         $db_price_with_tax = $options['db_names'][2];
         $db_price_without_tax = $options['db_names'][0];
         $db_tax = $options['db_names'][1];
